@@ -27,39 +27,6 @@ Sau đó mở: http://localhost:8000
 
 Hoặc dùng Live Server của VS Code.
 
-## Deploy để người khác truy cập
-
-Project là website tĩnh nên có thể deploy trực tiếp, không cần chạy Python trên
-máy của người dùng. Hosting phải cung cấp HTTPS thì trình duyệt mới cho phép
-truy cập camera.
-
-### Cách nhanh nhất: Netlify Drop
-
-1. Truy cập [https://app.netlify.com/drop](https://app.netlify.com/drop) và đăng
-   nhập hoặc tạo tài khoản.
-2. Kéo cả thư mục `face-scan-project` vào vùng thả trên trang.
-3. Netlify sẽ tạo một đường dẫn dạng `https://ten-ngau-nhien.netlify.app`.
-4. Gửi đường dẫn đó cho người khác. Họ mở bằng trình duyệt, bấm **Bật camera**
-   và cho phép quyền webcam.
-
-Không chỉ kéo riêng `index.html`; cần tải lên cả thư mục `css`, `js` và
-`cat_meme`.
-
-### Deploy lâu dài bằng GitHub Pages
-
-1. Tạo một repository mới trên GitHub.
-2. Tải toàn bộ các file và thư mục của project lên repository, sao cho
-   `index.html` nằm ở thư mục gốc.
-3. Vào **Settings → Pages**.
-4. Ở **Build and deployment**, chọn **Deploy from a branch**, chọn branch
-   `main` và thư mục `/ (root)`, rồi bấm **Save**.
-5. Sau một lúc, GitHub tạo đường dẫn dạng
-   `https://ten-tai-khoan.github.io/ten-repository/`.
-
-Nếu dùng repository riêng tư, khả năng truy cập GitHub Pages còn phụ thuộc vào
-gói tài khoản. Khi mở lần đầu, người dùng vẫn phải cấp quyền camera. Các model
-MediaPipe được tải từ CDN nên thiết bị cần có Internet.
-
 ## Cách dùng
 
 1. Bấm **Bật camera** và cho phép dùng webcam.
