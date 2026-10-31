@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhận diện cử chỉ tay</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "@mediapipe/tasks-vision": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/+esm"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Nhận diện mặt và cử chỉ tay trực tiếp</h1>
+      <p class="subtitle">Kết hợp vị trí khuôn mặt và cử chỉ bàn tay để hiển thị ảnh tương ứng.</p>
+    </header>
+
+    <section class="controls" aria-label="Điều khiển">
+      <button id="btnStart" type="button">Bật camera</button>
+      <button id="btnStop" type="button" disabled>Dừng</button>
+      <button id="btnSwitch" type="button" disabled>Đổi camera trước / sau</button>
+      <button id="btnShot" type="button" disabled>Chụp khung hình</button>
+      <button id="btnFullscreen" type="button">Toàn màn hình</button>
+
+      <label class="check"><input id="chkHands" type="checkbox" checked /> Hiện khớp bàn tay</label>
+      <label class="check"><input id="chkFace" type="checkbox" checked /> Bật nhận diện khuôn mặt</label>
+      <label class="check"><input id="chkMirror" type="checkbox" checked /> Lật gương</label>
+
+      <label class="range">
+        Độ nhạy nhận diện
+        <input id="sensitivity" type="range" min="0.3" max="0.9" step="0.05" value="0.5" />
+        <span id="sensitivityValue">0.50</span>
+      </label>
+    </section>
+
+    <section class="stats" aria-label="Trạng thái">
+      <span id="status">Chưa bật camera.</span>
+      <span>Số bàn tay: <strong id="handCount">0</strong></span>
+      <span>FPS: <strong id="fps">0</strong></span>
+    </section>
+
+    <p id="error" class="error" hidden></p>
+
+    <section class="stage" id="stage">
+      <div class="camera-pane">
+        <video id="video" playsinline autoplay muted></video>
+        <canvas id="canvas"></canvas>
+        <div id="guide" class="guide" hidden></div>
+      </div>
+      <div class="result-pane" aria-live="polite">
+        <img id="gestureImage" src="cat_meme/ngon_tro.jpg" alt="Ảnh minh họa kết quả" />
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

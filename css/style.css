@@ -1,0 +1,46 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #0f172a;
+  color: #f8fafc;
+}
+.app { max-width: 1400px; margin: 0 auto; padding: 16px; }
+h1 { margin: 0 0 6px; font-size: 28px; }
+.subtitle { margin: 0 0 18px; color: #cbd5e1; line-height: 1.5; }
+.controls {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 12px;
+}
+button {
+  border: 0; border-radius: 8px; padding: 10px 14px; font-weight: 600; cursor: pointer;
+  background: #22c55e; color: #052e16;
+}
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button#btnStop { background: #f87171; color: #450a0a; }
+.check, .range { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.stats { display: flex; flex-wrap: wrap; gap: 16px; margin: 14px 0; color: #e2e8f0; }
+.error {
+  background: #7f1d1d; border: 1px solid #f87171; color: #fecaca;
+  padding: 10px 12px; border-radius: 8px; white-space: pre-line;
+}
+.stage {
+  display: grid; grid-template-columns: 1fr 1fr; width: 100%;
+  height: min(78vh, 900px); min-height: 480px;
+  background: #000; border-radius: 14px; overflow: hidden; border: 1px solid #334155;
+}
+.camera-pane { position: relative; min-width: 0; background: #000; }
+.camera-pane video, .camera-pane canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.camera-pane video.mirrored { transform: scaleX(-1); }
+.stage:fullscreen { width: 100vw; height: 100vh; border: 0; border-radius: 0; }
+.guide { display: none; }
+.result-pane { display: flex; align-items: center; justify-content: center; min-width: 0; background: #0f172a; }
+.result-pane img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.hint { color: #94a3b8; line-height: 1.5; }
+.hint code { background: #1e293b; padding: 2px 6px; border-radius: 6px; color: #e2e8f0; }
+@media (max-width: 600px) {
+  h1 { font-size: 22px; }
+  .stage { height: calc(100vh - 230px); min-height: 420px; border-radius: 8px; }
+}
